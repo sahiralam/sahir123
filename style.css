@@ -32,7 +32,7 @@ header{
     justify-content:space-between;
     align-items:center;
     padding:20px 50px;
-    background-color: rgba(248, 246, 246, 0.212);
+    background-color: rgba(121, 118, 118, 0.212);
     border:1px solid rgba(228, 221, 221, 0.2);
       width:90%;
     max-width:1200px;
@@ -59,22 +59,22 @@ header{
     color: #fff;
     
 }
-.nav-links a::after{
+.nav-links > li > a::after{
     content: "";
     position: absolute;
     width: 0%;
     left: 0px;
     bottom: -8px;
     height: 3px;
-    background: rgb(251, 250, 249);
+    background: rgb(0, 0, 0);
     transition: .4s ease;
    
 }
-.nav-links a:hover::after{
+.nav-links > li > a:hover::after{
     width: 100%;
 }
 .nav-links a:hover{
-     color:#ffe082;;
+     color:#6516c6;;
 }
 .login-btn{
     padding: 12px 30px;
@@ -95,3 +95,78 @@ header{
     box-shadow: 0 0 20px rgba(255,255,255,.5);
     transform: translateY(-2px);
 }
+.nav-dropdown{
+    position: relative;
+    list-style: none;
+}
+.custom-dropdown{
+    position: absolute;
+    top: 45px;
+    left: 50%;
+     transform: translateX(-50%) translateY(-15px) scale(.95);
+    width: 180px;
+     list-style: none;
+     background-color: rgba(233, 220, 220, 0.214);
+     border: 1px solid rgba(180, 177, 177, 0.162);
+     border-radius: 10px;
+     margin: 0px;
+     padding: 10px 0px;
+       transform: translateX(-50%) translateY(-15px);
+       opacity: 0;
+     visibility: hidden;  
+
+}
+.nav-dropdown:hover .custom-dropdown{
+    opacity: 1;
+    visibility: visible; 
+      transform: translateX(-50%) translateY(0) scale(1);
+}
+.custom-dropdown li{
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: .3s ease;
+}
+
+.nav-dropdown:hover .custom-dropdown li{
+    opacity: 1;
+    transform: translateY(0);
+}
+.custom-dropdown li:nth-child(1){
+    transition-delay: .08s;
+}
+
+.custom-dropdown li:nth-child(2){
+    transition-delay: .16s;
+}
+
+.custom-dropdown li:nth-child(3){
+    transition-delay: .24s;
+}
+.custom-dropdown li a{
+    display:block;
+    padding:12px 20px;
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.custom-dropdown li a:hover{
+    background:rgba(255,255,255,.18);
+    padding-left:28px;
+    color:#fff;
+}
+.custom-dropdown::before{
+    content:"";
+    position:absolute;
+    top:-8px;
+    left:50%;
+    transform:translateX(-50%) rotate(45deg);
+
+    width:16px;
+    height:16px;
+
+    background:rgba(255,255,255,.12);
+    border-left:1px solid rgba(255,255,255,.2);
+    border-top:1px solid rgba(255,255,255,.2);
+}
+
