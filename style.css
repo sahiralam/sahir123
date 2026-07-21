@@ -28,7 +28,7 @@ body {
     border-radius: 50px;
     background: rgba(255, 255, 255, .15);
     backdrop-filter: blur(10px);
-    z-index: 1000
+    z-index: 1000 ;
 }
 
 .logo {
@@ -57,27 +57,31 @@ body {
     left: 50%;
     transform: translateX(-50%);
     list-style: none;
-    background: #333;
+  background: rgba(0, 0, 0, 0.208);
+    backdrop-filter: blur(110px);
     border-radius: 8px;
     padding: 8px 0;
     width: 180px;
     opacity: 0;
     visibility: hidden;
-    transition: .3s
+    transition: .3s;
+    text-align: center;
+    font-size: 20px;
+
 }
 
 .nav-dropdown:hover .custom-dropdown {
     opacity: 1;
-    visibility: visible
+    visibility: visible;
 }
 
 .custom-dropdown a {
     display: block;
-    padding: 10px 18px
+    padding: 10px 18px;
 }
 
 .custom-dropdown a:hover {
-    background: #555
+    background: #8f8c8c9b;
 }
 
 .login-btn {
@@ -102,24 +106,24 @@ body {
 
 
 .slider-section {
-    margin-top: 120px
+    margin-top: 120px;
 }
 
 .slider-img {
     height: 700px;
     object-fit: cover;
-    border-radius: 20px
+    border-radius: 20px;
 }
 
 .hero-header {
     text-align: center;
-    padding: 50px 20px
+    padding: 50px 20px;
 }
 
 .container {
     max-width: 1200px;
     margin: auto;
-    padding: 20px
+    padding: 20px;
 }
 
 .section {
@@ -132,16 +136,16 @@ body {
 @media(max-width:768px) {
     .custom-navbar {
         flex-direction: column;
-        gap: 15px
+        gap: 15px;
     }
 
     .nav-links {
         flex-wrap: wrap;
-        justify-content: center
+        justify-content: center;
     }
 
     .slider-img {
-        height: 300px
+        height: 300px;
     }
 }
 
