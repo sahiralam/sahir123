@@ -8,6 +8,10 @@
   <title>GameZone</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -23,7 +27,7 @@
           <a href="#">Games ▾</a>
           <ul class="custom-dropdown">
             <li><a href="#Adults">Adults</a></li>
-            <li><a href="#kids">Kids</a></li>
+            <li><a href="#Kids">Kids</a></li>
             <li><a href="#">Places</a></li>
           </ul>
         </li>
@@ -54,171 +58,147 @@
     </div>
   </section>
 
-  <!-- ================= HERO ================= -->
-  <section class="hero-header">
-    <h1>🎮 GameZone</h1>
-    <p>The Ultimate Indoor & Outdoor Games Guide</p>
-  </section>
 
-  <div class="container">
+    <header>
+        <h1>🎮 GameZone</h1>
+        <p>The Ultimate Indoor & Outdoor Games Guide</p>
+    </header>
 
-    <!-- Adults -->
-    <section class="section" id="Adults">
+    <div class="container">
 
-      <h2 class="section-title">👨‍💼 Adults Zone</h2>
+        <!-- ========== SECTION 1: ADULTS ========== -->
+        <section class="section" id="Adults">
+            <h2 class="section-title">👨‍💼 Adults Zone</h2>
+            
+            <div class="games-wrapper">
+                <!-- ADULT INDOOR -->
+                <div class="game-box">
+                    <h3>🏠 Indoor Games</h3>
+                    <ul class="game-list">
+                        <li data-detail="Improves brain power and strategy. Played between 2 players on a 64-square board." 
+                            data-img="https://images.unsplash.com/photo-1586165368502-1bad197a6461?w=400">
+                            ♟️ Chess <span class="badge">Brain</span>
+                        </li>
+                        <li data-detail="A fun card game with friends. Requires both luck and skill. Popular worldwide." 
+                            data-img="poker.jpg">
+                            🃏 Poker & Rummy <span class="badge">Cards</span>
+                        </li>
+                        <li data-detail="Use a cue stick to hit balls into pockets. Needs focus and precision." 
+                            data-img="Billiards.jpg">
+                            🎱 Billiards <span class="badge">Pro</span>
+                        </li>
+                        <li data-detail="Competitive gaming on PC or Console. Popular games include FIFA and Valorant." 
+                            data-img="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400">
+                            🎮 eSports <span class="badge">Trending</span>
+                        </li>
+                        <li data-detail="Classic games like Ludo, Monopoly, and Carrom. Perfect for family game night." 
+                            data-img="BoardGames.jpg">
+                            🧩 Board Games <span class="badge">Fun</span>
+                        </li>
+                    </ul>
+                </div>
 
-      <div class="games-wrapper">
+                <!-- ADULT OUTDOOR -->
+                <div class="game-box">
+                    <h3>🌳 Outdoor Games</h3>
+                    <ul class="game-list">
+                        <li data-detail="The most popular sport in Pakistan. Played with 11 players on each team." 
+                            data-img="cricket.jpga.jpg">
+                            🏏 Cricket <span class="badge">Team</span>
+                        </li>
+                        <li data-detail="Best for fitness and stamina. Played globally with the goal of scoring." 
+                            data-img="Football.jpg">
+                            ⚽ Football <span class="badge">Fitness</span>
+                        </li>
+                        <li data-detail="Played with a racket and shuttlecock. Requires fast reflexes and agility." 
+                            data-img="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400">
+                            🏸 Badminton <span class="badge">Fast</span>
+                        </li>
+                        <li data-detail="Great for health and endurance. A 5km morning run boosts energy." 
+                            data-img="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400">
+                            🏃 Running <span class="badge">Health</span>
+                        </li>
+                        <li data-detail="Long rides for adventure and cardio. Explores new places on two wheels." 
+                            data-img="cycling.jpg">
+                            🚴 Cycling <span class="badge">Adventure</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-        <!-- Indoor -->
-        <div class="game-box">
+        <!-- ========== SECTION 2: KIDS ========== -->
+        <section class="section" id="Kids">
+            <h2 class="section-title">👶 Kids Zone</h2>
+            
+            <div class="games-wrapper">
+                <!-- KIDS INDOOR -->
+                <div class="game-box">
+                    <h3>🏠 Indoor Games</h3>
+                    <ul class="game-list">
+                        <li data-detail="Boosts creativity using colors, pencils, and paper. Kids love to draw." 
+                            data-img="DrawingCraft.jpg">
+                            🎨 Drawing & Craft <span class="badge">Creative</span>
+                        </li>
+                        <li data-detail="Build houses, cars, and robots using colorful Lego blocks. Improves IQ." 
+                            data-img="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400">
+                            🧱 Lego Building <span class="badge">IQ</span>
+                        </li>
+                        <li data-detail="A classic board game. Climb ladders and avoid snakes. For 2 to 4 players." 
+                            data-img="https://images.unsplash.com/photo-1611996575749-79a3a250f948?w=400">
+                            🎲 Snake & Ladder <span class="badge">Classic</span>
+                        </li>
+                        <li data-detail="Kids pretend to be doctors, teachers, or chefs. Builds imagination." 
+                            data-img="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400">
+                            🎭 Role Play <span class="badge">Imagination</span>
+                        </li>
+                        <li data-detail="Join 100 to 500 pieces to complete a picture. Great brain exercise." 
+                            data-img="JigsawPuzzles.jpg">
+                            🧩 Jigsaw Puzzles <span class="badge">Mind</span>
+                        </li>
+                    </ul>
+                </div>
 
-          <h3>🏠 Indoor Games</h3>
+                <!-- KIDS OUTDOOR -->
+                <div class="game-box">
+                    <h3>🌳 Outdoor Games</h3>
+                    <ul class="game-list">
+                        <li data-detail="One child closes eyes and counts. Others hide. Then they are found." 
+                            data-img="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=400">
+                            🤸 Hide and Seek <span class="badge">Fun</span>
+                        </li>
+                        <li data-detail="A running and chasing game. The one who is caught becomes the chaser." 
+                            data-img="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400">
+                            🏃 Tag <span class="badge">Running</span>
+                        </li>
+                        <li data-detail="Draw boxes on the ground and hop on one leg. Improves balance." 
+                            data-img="Hopscotch.jpg">
+                            🦘 Hopscotch <span class="badge">Balance</span>
+                        </li>
+                        <li data-detail="Flying colorful kites in the sky. Needs string and good wind." 
+                            data-img="kite.jpg">
+                            🪁 Kite Flying <span class="badge">Sky</span>
+                        </li>
+                        <li data-detail="Playing on swings, slides, and seesaws in the park with friends." 
+                            data-img="https://images.unsplash.com/photo-1560275619-4cc5fa59d3ae?w=400">
+                            🛝 Park & Swings <span class="badge">Play</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-          <ul class="game-list">
+    </div>
 
-            <li>♟️ Chess <span class="badge">Brain</span></li>
+   
+    <div id="hover-info">
+        <img id="hover-img" src="..." alt="game image">
+        <p id="hover-text"></p>
+    </div>
+   
+    <script src="picnic.js"></script>
 
-            <li>🃏 Poker & Rummy <span class="badge">Cards</span></li>
-
-            <li>🎱 Billiards <span class="badge">Pro</span></li>
-
-            <li>🎮 eSports - FIFA, Valorant <span class="badge">Trending</span></li>
-
-            <li>🧩 Board Games <span class="badge">Fun</span></li>
-
-            <li>🎯 Table Tennis <span class="badge">Sports</span></li>
-
-          </ul>
-
-        </div>
-
-        <!-- Outdoor -->
-        <div class="game-box">
-
-          <h3>🌳 Outdoor Games</h3>
-
-          <ul class="game-list">
-
-            <li>🏏 Cricket <span class="badge">Team</span></li>
-
-            <li>⚽ Football <span class="badge">Fitness</span></li>
-
-            <li>🏸 Badminton <span class="badge">Fast</span></li>
-
-            <li>🏃 Marathon & Running <span class="badge">Health</span></li>
-
-            <li>🚴 Cycling <span class="badge">Adventure</span></li>
-
-            <li>⛳ Golf <span class="badge">Elite</span></li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- Kids -->
-    <section class="section" id="kids">
-
-      <h2 class="section-title">👶 Kids Zone</h2>
-
-      <div class="games-wrapper">
-
-        <!-- Indoor -->
-        <div class="game-box">
-
-          <h3>🏠 Indoor Games</h3>
-
-          <ul class="game-list">
-
-            <li>🎨 Drawing & Craft <span class="badge">Creative</span></li>
-
-            <li>🧱 Lego Building <span class="badge">IQ</span></li>
-
-            <li>🎲 Snake & Ladder <span class="badge">Classic</span></li>
-
-            <li>🎭 Role Play <span class="badge">Imagination</span></li>
-
-            <li>🧩 Jigsaw Puzzles <span class="badge">Mind</span></li>
-
-            <li>📚 Story Time <span class="badge">Learning</span></li>
-
-          </ul>
-
-        </div>
-
-        <!-- Outdoor -->
-        <div class="game-box">
-
-          <h3>🌳 Outdoor Games</h3>
-
-          <ul class="game-list">
-
-            <li>🤸 Chupan Chupai <span class="badge">Fun</span></li>
-
-            <li>🏃 Pakram Pakrai <span class="badge">Running</span></li>
-
-            <li>🦘 Stapu / Hopscotch <span class="badge">Balance</span></li>
-
-            <li>🪁 Patang Bazi <span class="badge">Sky</span></li>
-
-            <li>⚽ Mini Football <span class="badge">Team</span></li>
-
-            <li>🛝 Park & Swings <span class="badge">Play</span></li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  
 </body>
-
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-</body>
-
->>>>>>> da6e615fc76bff82d92dc8addb5242cc16854258
-
 </html>
