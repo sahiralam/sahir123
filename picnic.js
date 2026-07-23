@@ -19,3 +19,4 @@ gameItems.forEach(item => {
         hoverBox.style.display = 'none';
     });
 });
+
