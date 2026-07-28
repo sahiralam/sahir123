@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hub - Gaming Places & Zones</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #120924;
+            color: #ffffff;
+            padding: 30px 5%;
+        }
+
+        .last-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .last-section h1 {
+            font-size: 2.5rem;
+            color: #a855f7;
+            margin-bottom: 10px;
+        }
+
+        .last-section p {
+            color: #ccc;
+            font-size: 1.1rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin: 30px 0 15px 0;
+            color: #eab308;
+            border-bottom: 2px solid #eab308;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3);
+        }
+
+        .card h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            color: #ddd;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .card ul {
+            list-style-type: square;
+            margin-left: 20px;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        .card ul li {
+            margin-bottom: 5px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: #a855f7;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #9333ea;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* yaha tak uper ka code  */
+        /* --- Background & Container Styling --- */
+
+        .consol {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .consol h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #a855f7;
+            text-shadow: #6339e2;
+            text-decoration: underline;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* --- Individual Card Styling --- */
+        .grid-item {
+            position: relative;
+            background-color: #1a1528;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Card Hover Effect */
+        .grid-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(110, 68, 255, 0.3);
+        }
+
+        /* --- Image Styling --- */
+        .grid-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: scale 0.3s ease;
+        }
+
+        .grid-item:hover img {
+            scale: 1.05;
+        }
+
+        /* --- Optional: Data Title Overlay on Hover --- */
+        .grid-item::after {
+            content: attr(data-title);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+            color: #ffffff;
+            padding: 15px 10px 10px 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* footer yaha h */
+        .footer {
+            width: 90%;
+            margin: 80px auto 30px;
+            background: rgba(35, 25, 55, .55);
+            border-radius: 25px;
+            padding: 30px;
+            backdrop-filter: blur(18px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .35);
+
+
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+        }
+
+        .footer-logo {
+            font-size: 38;
+            color: white;
+        }
+
+        .footer-logo span {
+            color: #6339e2;
+        }
+
+        .footer-logo p {
+            color: rgba(226, 223, 223, 0.823);
+            margin-top: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-links h3 {
+            color: white;
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #ddd;
+            margin: 8px 0px;
+        }
+
+        .footer-links a:hover {
+            color: #b44cff;
+            padding-left: 8px;
+            transition: .5s;
+        }
+
+        .footer-contact p {
+            color: white;
+        }
+
+        .footer-contact i {
+            color: #b44cff;
+            margin-right: 10px;
+        }
+
+        .footer-social h3 {
+            color: white;
+        }
+
+        .footer-social a {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #938e8e7c;
+            color: #ddd;
+            margin-right: 10px;
+            gap: 20px;
+            transition: .35s;
+        }
+
+        .footer-social a:hover {
+            background: #9d3cff;
+            transform: translateY(-6px);
+        }
+
+        .copyright {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            text-align: center;
+            color: #ddd;
+        }
+
+        .copyright span {
+            color: #b44cff;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="last-section">
+        <h1>🎮 Game Hub - Places & Play Zones</h1>
+        <p>Explore all the dedicated gaming areas for Kids and Adults!</p>
+    </section>
+
+    <h2 class="section-title">👶 Kids Play Zones</h2>
+    <div class="grid-container">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=800&auto=format&fit=crop"
+                alt="Soft Play Area" class="card-img" loading="lazy">
+            <h3>🧩 Soft Play & Toy Area</h3>
+            <p>A safe and fun environment for young kids with building blocks, puzzles, and soft obstacles.</p>
+            <ul>
+                <li><strong>Age Group:</strong> 3 - 7 Years</li>
+                <li><strong>Activities:</strong> Legos, Puzzles, Storytelling corner</li>
+                <li><strong>Safety:</strong> Soft padded floors & full supervision</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800&auto=format&fit=crop"
+                alt="Arcade Zone" class="card-img" loading="lazy">
+            <h3>🎨 Creative & Arcade Corner</h3>
+            <p>Interactive arcade games designed specifically for children to improve learning and fun.</p>
+            <ul>
+                <li><strong>Age Group:</strong> 5 - 12 Years</li>
+                <li><strong>Activities:</strong> Racing simulators, Drawing digital pads</li>
+                <li><strong>Features:</strong> Ticket reward system</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="consol">
+        <h2>Images For Kids⤵️</h2>
+        <div class="image-grid">
+
+            <div class="grid-item" data-title="Outdoor Kite Flying"
+                data-detail="Flying colorful kites in the open sky on sunny afternoons."><img
+                    src="Flying colorful kites in the open sky on sunny afternoons.jpg" alt="Kite Flying"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Kids Cycling Track"
+                data-detail="Riding bicycles safely on dedicated green tracks with helmets."><img
+                    src="Riding bicycles safely on dedicated green tracks with helmets.jpg" alt="Cycling Track"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Hopscotch Outdoor Game"
+                data-detail="Classic sidewalk jumping game for balance and agility."><img
+                    src="Classic sidewalk jumping game for balance and agility.jpg" alt="Hopscotch" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Youth Football Practice"
+                data-detail="Kicking footballs and practicing goals on mini grass pitches."><img
+                    src="Kicking footballs and practicing goals on mini grass pitches.jpg" alt="Kids Football"
+                    loading="lazy"></div>
+            <div class="grid-item" data-title="Junior Cricket Coaching"
+                data-detail="Learning bat-and-ball cricket shots with lightweight equipment."><img
+                    src="Learning bat-and-ball cricket shots with lightweight equipment. images.jpg"
+                    alt="Junior Cricket" loading="lazy"></div>
+
+            <div class="grid-item" data-title="Origami & Paper Crafts"
+                data-detail="Making paper airplanes, boats, and decorative crafts."><img
+                    src="Making paper airplanes, boats, and decorative crafts.jpg" alt="Origami Crafts" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Board Games Challenge"
+                data-detail="Playing Ludo, Snakes & Ladders, and memory match card games."><img
+                    src="Playing Ludo, Snakes & Ladders, and memory match card games.jpg" alt="Board Games"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Kids Fun Obstacle Course"
+                data-detail="Running through inflatable tunnels and safe soft-play mazes."><img
+                    src="Running through inflatable tunnels and safe soft-play mazes.png" alt="Soft Play Zone"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Trampoline Bounce"
+                data-detail="High-energy jumping on enclosed safety-net trampolines."><img
+                    src="High-energy jumping on enclosed safety-net trampolines.jpg" alt="Trampoline" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Kids Badminton Net"
+                data-detail="Casual outdoor racquet games with light shuttlecocks."><img
+                    src="Casual outdoor racquet games with light shuttlecocks.jpg" alt="Badminton" loading="lazy"></div>
+
+            <div class="grid-item" data-title="Puppet & Story Corner"
+                data-detail="Listening to fairy tales and puppet theatre performances."><img
+                    src="Listening to fairy tales and puppet theatre performances.jpg" alt="Storytelling"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Clay Modeling Station"
+                data-detail="Shaping colorful play-doh and modeling clay into sculptures."><img
+                    src="Shaping colorful play-doh and modeling clay into sculptures.jpg" alt="Clay Art" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Park Swings & Playground"
+                data-detail="Playing on swings, slides, and seesaws in the park with friends."><img
+                    src="Playing on swings, slides, and seesaws in the park with friends.jpg" alt="Swings"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Lego & Wooden Blocks"
+                data-detail="Building tall towers, houses, and creative structures using colorful blocks."><img
+                    src="Building tall towers, houses, and creative structures using colorful blocks.jpg"
+                    alt="Toy Blocks" loading="lazy"></div>
+
+            <div class="grid-item" data-title="Drawing & Paint Station"
+                data-detail="Expressing creativity with watercolors, crayons, and sketchbooks."><img
+                    src="Expressing creativity with watercolors, crayons, and sketchbooks.jpg" alt="Drawing"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Jigsaw Puzzles Corner"
+                data-detail="Solving fun pattern puzzles and picture board games together."><img
+                    src="Solving fun pattern puzzles and picture board games together.jpg" alt="Puzzles" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Bubble Catching Game"
+                data-detail="Chasing giant soap bubbles across the open picnic lawn."><img
+                    src="Chasing giant soap bubbles across the open picnic lawn.jpg" alt="Soap Bubbles" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Sandcastle Beach Box"
+                data-detail="Digging, scooping, and building sand structures with buckets."><img
+                    src="Digging, scooping, and building sand structures with buckets.jpg" alt="Sandcastle"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Kids Water Splash Zone"
+                data-detail="Cooling off in shallow splash pads and water fountain parks."><img
+                    src="Cooling off in shallow splash pads and water fountain parks.jpg" alt="Water Splash"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Junior Basketball Hoop"
+                data-detail="Shooting mini basketballs into low-height adjustable rims."><img
+                    src="Shooting mini basketballs into low-height adjustable rims.jpg" alt="Kids Basketball"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Face Painting Corner"
+                data-detail="Fun transformation into superheroes, animals, and butterflies."><img
+                    src="Fun transformation into superheroes, animals, and butterflies.jpg" alt="Face Painting"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Roller Skating Ring"
+                data-detail="Gliding around smooth wooden floors with quad roller skates."><img
+                    src="Gliding around smooth wooden floors with quad roller skates.jpg" alt="Roller Skating"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Kids VR Adventure"
+                data-detail="Kid-friendly interactive cartoon games using VR goggles."><img
+                    src="Kid-friendly interactive cartoon games using VR goggles.jpg" alt="Kids VR" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Outdoor Picnic Lawn"
+                data-detail="Relaxing with juice boxes and snacks under shaded trees."><img
+                    src="Relaxing with juice boxes and snacks under shaded trees.jpg" alt="Kids Picnic" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Night Sky Telescope"
+                data-detail="High-powered stargazing telescopes on the rooftop terrace."><img
+                    src="High-powered stargazing telescopes on the rooftop terrace.jpg" alt="Stargazing" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="VolleyBall In Ground"
+                data-detail="VolleyBall Punjabi Culture Game In Pakistan."><img
+                    src="Wolly Ball Punjabi Culture Game In Pakistan.jpg" alt="Stargazing" loading="lazy"></div>
+
+            <div class="grid-item" data-title="Night Sky Telescope"
+                data-detail="Cycling Make Our Body Healthiear Every One Love This Game."><img
+                    src="Cycling Make Our Body Healthiear Every One Love This Game.jpg" alt="Stargazing" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Running" data-detail="This Game Make Better Strategy For Body."><img
+                    src="cyclingKids.jpg" alt="Stargazing" loading="lazy"></div>
+
+            <div class="grid-item" data-title="Hidden See"
+                data-detail="Find-the-Object: Spot everyday items like a pencil, key, or book in a messy room or outdoor scene.">
+                <img src="hidden.jpg" alt="Stargazing" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Tug-Of-War"
+                data-detail="Two teams compete directly against each other, typically consisting of 8 players per team.Healthy kids love this game">
+                <img src="tugofwar.jpg" alt="Stargazing" loading="lazy">
+            </div>
+
+        </div>
+    </div>
+
+    <h2 class="section-title">🕹️ Adults Gaming Lounge</h2>
+    <div class="grid-container">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=800&auto=format&fit=crop"
+                alt="Pool and Snooker Table" class="card-img" loading="lazy">
+            <h3>🎱 Indoor Sports & Recreation</h3>
+            <p>Classic physical games for relaxation, friendly matches, and tournaments.</p>
+            <ul>
+                <li><strong>Games Available:</strong> Pool / Snooker, Table Tennis, Chess</li>
+                <li><strong>Ambience:</strong> Modern lounge with cozy seating</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?q=80&w=800&auto=format&fit=crop"
+                alt="Console Gaming Controller" class="card-img" loading="lazy">
+            <h3>🎮 E-Sports & Console Arena</h3>
+            <p>High-end setups for competitive console gaming and multiplayer sessions.</p>
+            <ul>
+                <li><strong>Platforms:</strong> PS5, Xbox Series X, VR Headsets</li>
+                <li><strong>Popular Games:</strong> FIFA, Tekken, Call of Duty</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="consol">
+        <h2>Images Of Adults⤵️</h2>
+
+        <div class="image-grid">
+            <div class="grid-item" data-title="Billiards & Snooker Hall"
+                data-detail="8-ball and 9-ball snooker tables with luxury cue accessories."><img
+                    src="8-ball and 9-ball snooker tables with luxury cue accessories.jpg" alt="Billiards Lounge"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="PS5 Pro Console Lounge"
+                data-detail="4K 120Hz gaming screens loaded with Tekken, FIFA, and GTA."><img
+                    src="4K 120Hz gaming screens loaded with Tekken, FIFA, and GTA.jpg" alt="Console Setup"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Pro Esports PC Station"
+                data-detail="High-FPS liquid-cooled rigs with mechanical keyboards."><img
+                    src="High-FPS liquid-cooled rigs with mechanical keyboards.jpg" alt="Esports Rig" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="VR Motion Treadmill"
+                data-detail="360-degree Virtual Reality immersion setups with haptic vests."><img
+                    src="360-degree Virtual Reality immersion setups with haptic vests.jpg" alt="VR Rig" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Retro Neon Arcade"
+                data-detail="Classic pinball, Street Fighter II, and racing cabinets."><img
+                    src="Classic pinball, Street Fighter II, and racing cabinets.jpg" alt="Arcade Machine"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Strategic Chess Corner"
+                data-detail="Wooden chess sets for tactical mind games and tournaments."><img
+                    src="Wooden chess sets for tactical mind games and tournaments.jpg" alt="Chess Lounge"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Poker & Card Table"
+                data-detail="Texas Hold'em setup with professional chips and dealer felt."><img
+                    src="Texas Hold'em setup with professional chips and dealer felt.jpg" alt="Poker Night"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Table Tennis Arena"
+                data-detail="Indoor ping-pong tables with competition-grade paddles."><img
+                    src="Indoor ping-pong tables with competition-grade paddles.jpg" alt="Table Tennis" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Bowling Alley Lane"
+                data-detail="Neon-lit bowling lanes with automated score tracking."><img
+                    src="Neon-lit bowling lanes with automated score tracking.jpg" alt="Bowling Alley" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Foosball (Table Football)"
+                data-detail="Fast-paced 2v2 table soccer matches for friend groups."><img
+                    src="Fast-paced 2v2 table soccer matches for friend groups.jpg" alt="Foosball" loading="lazy"></div>
+
+            <div class="grid-item" data-title="Air Hockey Table"
+                data-detail="High-speed puck action on glowing air-cushioned tables."><img
+                    src="High-speed puck action on glowing air-cushioned tables.jpg" alt="Air Hockey" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Racing Flight Simulator"
+                data-detail="Force-feedback steering wheel setups with bucket seats."><img
+                    src="Force-feedback steering wheel setups with bucket seats.jpg" alt="Racing Simulator"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Dart Board Station"
+                data-detail="Steel-tip electronic darts board with automatic scoring."><img
+                    src="Steel-tip electronic darts board with automatic scoring.jpg" alt="Dart Game" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Adults Turf Football"
+                data-detail="5-a-side floodlit artificial turf ground for evening matches."><img
+                    src="5-a-side floodlit artificial turf ground for evening matches.jpg" alt="Adult Football"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Cricket Bowling Net"
+                data-detail="Automated bowling machines for batting practice."><img
+                    src="Automated bowling machines for batting practice.jpg" alt="Cricket Pitch" loading="lazy"></div>
+
+            <div class="grid-item" data-title="Tennis Court Match"
+                data-detail="Hardcourt tennis matches with floodlights available."><img
+                    src="Hardcourt tennis matches with floodlights available.jpg" alt="Tennis Court" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Indoor Golf Simulator"
+                data-detail="Virtual driving range analyzing swing speed and trajectory."><img
+                    src="Virtual driving range analyzing swing speed and trajectory.jpg" alt="Golf Simulator"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Squash Court Zone"
+                data-detail="High-intensity indoor glass-back squash courts."><img
+                    src="High-intensity indoor glass-back squash courts.jpg" alt="Squash Court" loading="lazy"></div>
+
+            <div class="grid-item" data-title="Board Games Lounge"
+                data-detail="Catan, Monopoly, and Scrabble for strategy game nights."><img
+                    src="Catan, Monopoly, and Scrabble for strategy game nights.jpg" alt="Adult Board Games"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Karaoke Singing Booth"
+                data-detail="Soundproof booths equipped with microphones and song lists."><img
+                    src="Soundproof booths equipped with microphones and song lists.jpg" alt="Karaoke Lounge"
+                    loading="lazy"></div>
+
+            <div class="grid-item" data-title="Chill Out Coffee Bar"
+                data-detail="Relaxing lounge area serving cold brews and energy drinks."><img
+                    src="Relaxing lounge area serving cold brews and energy drinks.jpg" alt="Coffee Bar" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Swimming Pool Deck"
+                data-detail="Temperature-controlled pool with reclining loungers."><img
+                    src="Temperature-controlled pool with reclining loungers.jpg" alt="Swimming Pool" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Outdoor Barbecue Grill"
+                data-detail="Live BBQ pit station for evening party gatherings."><img
+                    src="Live BBQ pit station for evening party gatherings.jpg" alt="BBQ Grill" loading="lazy"></div>
+
+            <div class="grid-item" data-title="Outdoor Campfire Setup"
+                data-detail="Cozy bonfire seating area with acoustic guitar music."><img
+                    src="Cozy bonfire seating area with acoustic guitar music.jpg" alt="Bonfire" loading="lazy"></div>
+
+            <div class="grid-item" data-title="Night Sky Telescope"
+                data-detail="High-powered stargazing telescopes on the rooftop terrace."><img
+                    src="High-powered stargazing telescopes on the rooftop terrace.jpg" alt="Stargazing" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="VolleyBall"
+                data-detail="Volleyball provides an excellent full-body workout. It improves agility, stamina, reflexes, and overall body balance.">
+                <img src="Volleyball provides an excellent full-body workout. It improves agility, stamina, reflexes, and overall body balance.jpg"
+                    alt="Stargazing" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Cricket"
+                data-detail="Playing cricket involves a mix of sprinting, throwing, jumping, and stamina building, making it a great overall workout.">
+                <img src="Playing cricket involves a mix of sprinting, throwing, jumping, and stamina building, making it a great overall workout.jpg"
+                    alt="Stargazing" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Running"
+                data-detail="Running is one of the best exercises for your heart. It lowers blood pressure, strengthens cardiac muscles, and improves blood circulation.">
+                <img src="Running is one of the best exercises for your heart. It lowers blood pressure, strengthens cardiac muscles, and improves blood circulation.jpg"
+                    alt="Stargazing" loading="lazy">
+            </div>
+
+            <div class="grid-item" data-title="Isnoker"
+                data-detail="Sharpened Mental Focus & Strategy: Snooker is often called physical chess." It requires
+                deep concentration, tactical thinking, geometry, and planning several moves ahead.><img
+                    src="snooker.jpg" alt="Stargazing" loading="lazy"></div>
+
+            <div class="grid-item" data-title="BoardGames & Chess"
+                data-detail="For mental exercise and social evenings, games like Settlers of Catan, Codenames, or Chess are very popular among adult groups.">
+                <img src="For mental exercise and social evenings, games like Settlers of Catan, Codenames, or Chess are very popular among adult groups.jpg"
+                    alt="Stargazing" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+    <center>
+        <a href="Picnic.html" class="back-btn">← Back to Main Page</a>
+    </center>
+
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div class="footer-logo">
+                <h2>Game<span>Zone</span>🎮</h2>
+                <p>The Ultimate Indoor & Outdoor Games Guide</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+
+                <a href="">Home</a>
+                <a href="#">Games</a>
+                <a href="#">Adults</a>
+                <a href="#">Kids</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+
+            <div class="footer-contact">
+
+                <p><i class="bi bi-geo-alt-fill"></i> Pakistan</p>
+                <p><i class="bi bi-envelope-fill"></i> gamezone@gmail.com</p>
+                <p><i class="bi bi-telephone-fill"></i> +92 300 1234567</p>
+            </div>
+            <div class="footer-social">
+
+                <h3>Follow Us</h3>
+
+                <a href="#"><i class="bi bi-facebook"></i></a>
+
+                <a href="#"><i class="bi bi-instagram"></i></a>
+
+                <a href="#"><i class="bi bi-youtube"></i></a>
+
+                <a href="#"><i class="bi bi-discord"></i></a>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            <h3>© 2025<span>GameZone</span>.All Rights Reserved.</h3>
+        </div>
+
+        </div>
+
+    </footer>
+
+    <script src="picnic.js"></script>
+
+</body>
+
+</html>

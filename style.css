@@ -74,7 +74,6 @@ body::after {
     display: flex;
     text-decoration: none;
     font-family: 'Baloo 2', cursive;
-    ;
     position: relative;
     animation: float 7s ease-in-out infinite;
 }
@@ -116,12 +115,17 @@ body::after {
 @keyframes float {
 
     0%,
-    100% {
+    100%
+     {
         transform: translateY(0);
     }
 
-    50% {
+     50% {
         transform: translateY(-5px);
+    }
+
+    0% {
+        transform: translateY(5px);
     }
 
 }

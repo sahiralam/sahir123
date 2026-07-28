@@ -4,7 +4,8 @@ const hoverText = document.getElementById('hover-text');
 const gameItems = document.querySelectorAll('.game-list li');
 
 gameItems.forEach(item => {
-    item.addEventListener('mouseenter', (e) => {
+    
+    item.addEventListener('mouseenter', () => {
         hoverImg.src = item.getAttribute('data-img');
         hoverText.innerText = item.getAttribute('data-detail');
         hoverBox.style.display = 'flex';
@@ -19,4 +20,3 @@ gameItems.forEach(item => {
         hoverBox.style.display = 'none';
     });
 });
-
