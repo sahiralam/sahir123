@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Poppins, sans-serif
+  
 }
 
 body::before {
@@ -76,6 +76,7 @@ body::after {
     font-family: 'Baloo 2', cursive;
     position: relative;
     animation: float 7s ease-in-out infinite;
+     
 }
 
 .logo-p {
@@ -102,11 +103,12 @@ body::after {
     border-radius: 50px;
     bottom: -8px;
     left: 5px;
+   
 }
 
 .logo:hover {
     transform: scale(1.05);
-    transition: .45s;
+   
 
 
 }
@@ -121,11 +123,11 @@ body::after {
     }
 
      50% {
-        transform: translateY(-5px);
+        transform: translateY(-10px);
     }
 
     0% {
-        transform: translateY(5px);
+        transform: translateY(0px);
     }
 
 }
@@ -571,3 +573,4 @@ header p {
     color:#b44cff;
     font-weight:600;
 }
+

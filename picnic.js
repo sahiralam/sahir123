@@ -20,3 +20,39 @@ gameItems.forEach(item => {
         hoverBox.style.display = 'none';
     });
 });
+
+const password = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+
+togglePassword.addEventListener("click", function () {
+
+    if (password.type === "password") {
+        password.type = "text";
+        this.classList.remove("bi-eye-slash-fill");
+        this.classList.add("bi-eye-fill");
+    } else {
+        password.type = "password";
+        this.classList.remove("bi-eye-fill");
+        this.classList.add("bi-eye-slash-fill");
+    }
+
+});
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()

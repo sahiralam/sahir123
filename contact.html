@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+    }
+
+    body {
+        min-height: 100vh;
+        padding: 40px 20px;
+        background: url("background-img.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        min-height: 100%;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(5, 10, 25, .75);
+        backdrop-filter: blur(8px);
+        z-index: -1;
+    }
+
+    body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+            radial-gradient(circle at top left, #7d3cff55, transparent 35%),
+            radial-gradient(circle at bottom left, #b44cff55, transparent 35%),
+            radial-gradient(circle at top right, #9d3cff33, transparent 35%);
+        z-index: -1;
+    }
+
+
+
+    .custom-navbar {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 40px;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, .15);
+        border: 1px solid #6339e299;
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+    }
+
+    .logo {
+        display: flex;
+        text-decoration: none;
+        font-family: 'Baloo 2', cursive;
+        position: relative;
+        animation: float 7s ease-in-out infinite;
+
+    }
+
+    .logo-p {
+        font-size: 40px;
+        font-weight: 800;
+        background: linear-gradient(180deg, #d77cff, #8d3cff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .logo-text {
+        font-size: 35px;
+        color: #fff;
+        font-weight: 600;
+        position: relative;
+    }
+
+    .logo::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 7px;
+        background: linear-gradient(90deg, #9d3cff, #b44cff);
+        border-radius: 50px;
+        bottom: -8px;
+        left: 5px;
+
+    }
+
+    .logo:hover {
+        transform: scale(1.05);
+    }
+
+
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+
+        0% {
+            transform: translateY(0px);
+        }
+
+    }
+
+
+    .nav-img {
+        height: 50px;
+        width: 70px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 35px;
+        list-style: none;
+    }
+
+    .nav-links .link {
+        text-decoration: none;
+        color: #fff
+    }
+
+    .nav-links .link:hover {
+        color: #c86cff;
+        text-shadow: 0 0 10px rgba(200, 108, 255, .8);
+    }
+
+    .nav-dropdown {
+        position: relative;
+    }
+
+    .custom-dropdown {
+        position: absolute;
+        top: 45px;
+        left: 50%;
+        transform: translateX(-50%);
+        list-style: none;
+        background: rgba(0, 0, 0, 0.208);
+        backdrop-filter: blur(110px);
+        border-radius: 8px;
+        padding: 8px 0;
+        width: 180px;
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s;
+        text-align: center;
+        font-size: 20px;
+
+    }
+
+    .nav-dropdown:hover .custom-dropdown {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .custom-dropdown .drop {
+        display: block;
+        padding: 10px 18px;
+        transition: all 0.3s ease;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: white;
+    }
+
+    .custom-dropdown .drop:hover {
+        color: #ffcc00;
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateX(8px);
+        border-radius: 8px;
+    }
+
+    #heroSlider {
+        width: 95%;
+        margin: 40px;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, .45);
+    }
+
+    .carousel-item {
+        height: 520px;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Dark Overlay */
+    .carousel-item::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, .15);
+    }
+
+    /* Arrows */
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 60px;
+    }
+
+    .carousel-control-prev span,
+    .carousel-control-next span {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 50%;
+        background: rgba(60, 30, 90, .65);
+        backdrop-filter: blur(10px);
+
+        font-size: 28px;
+        color: #fff;
+        transition: .3s;
+    }
+
+    .carousel-control-prev span:hover,
+    .carousel-control-next span:hover {
+        background: #bcb0c8;
+    }
+
+
+
+
+
+
+    .login-btn {
+        padding: 12px 30px;
+        border-radius: 30px;
+        border: 1px solid #6339e299;
+        background: rgba(255, 255, 255, .12);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        transition: .4s;
+    }
+
+    .login-btn:hover {
+        background: rgba(251, 251, 251, 0.932);
+        color: #6339e299;
+        box-shadow: 0 0 20px rgba(255, 255, 255, .5);
+        transform: translateY(-2px);
+    }
+
+
+    .footer {
+        width: 90%;
+        margin: 80px auto 30px;
+        background: rgba(35, 25, 55, .55);
+        border-radius: 25px;
+        padding: 30px;
+        backdrop-filter: blur(18px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, .35);
+
+
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 50px;
+    }
+
+    .footer-logo {
+        font-size: 38;
+        color: white;
+    }
+
+    .footer-logo span {
+        color: #6339e2;
+    }
+
+    .footer-logo p {
+        color: rgba(226, 223, 223, 0.823);
+        margin-top: 10px;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-links h3 {
+        color: white;
+        margin-bottom: 18px;
+    }
+
+    .footer-links a {
+        text-decoration: none;
+        color: #ddd;
+        margin: 8px 0px;
+    }
+
+    .footer-links a:hover {
+        color: #b44cff;
+        padding-left: 8px;
+        transition: .5s;
+    }
+
+    .footer-contact p {
+        color: white;
+    }
+
+    .footer-contact i {
+        color: #b44cff;
+        margin-right: 10px;
+    }
+
+    .footer-social h3 {
+        color: white;
+    }
+
+    .footer-social a {
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: #938e8e7c;
+        color: #ddd;
+        margin-right: 10px;
+        transition: .35s;
+    }
+
+    .footer-social a:hover {
+        background: #9d3cff;
+        transform: translateY(-6px);
+    }
+
+    .copyright {
+        margin-top: 40px;
+        padding-top: 25px;
+        border-top: 1px solid rgba(255, 255, 255, .08);
+        text-align: center;
+        color: #ddd;
+    }
+
+    .copyright span {
+        color: #b44cff;
+        font-weight: 600;
+    }
+
+    /* Map */
+
+    .map-box {
+        overflow: hidden;
+        border-radius: 20px;
+        border: 2px solid rgba(162, 89, 255, .30);
+        box-shadow: 0 0 25px rgba(162, 89, 255, .25);
+        height: 100%;
+    }
+
+    .map-box iframe {
+        width: 100%;
+        height: 100%;
+        min-height: 580px;
+        filter: grayscale(.2) contrast(1.05);
+    }
+
+    /* Bootstrap validation */
+
+    .valid-feedback {
+        color: #00ff95;
+    }
+
+    .invalid-feedback {
+        color: #ff6b6b;
+    }
+
+    /* Responsive */
+
+    @media(max-width:768px) {
+
+        .container {
+            margin-top: 110px !important;
+            padding: 25px;
+        }
+
+        .con-heading {
+            font-size: 40px;
+        }
+
+        .map-box {
+            margin-top: 30px;
+        }
+
+        .map-box iframe {
+            min-height: 350px;
+        }
+
+    }
+
+    .heading {
+        margin-bottom: 30px;
+    }
+
+    .password-box {
+        position: relative;
+        width: 100%;
+    }
+
+    .password-box input {
+        width: 100%;
+        height: 45px;
+        padding: 10px 45px 10px 15px;
+    }
+
+    #togglePassword {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-5%);
+        cursor: pointer;
+        font-size: 20px;
+        color: #555;
+    }
+
+    .map-box {
+        width: 100%;
+        height: 735px;
+        overflow: hidden;
+        border-radius: 15px;
+    }
+
+    .map-box iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    .container {
+        margin-top: 140px;
+        margin-bottom: 70px;
+        border: 2px solid rgba(162, 89, 255, .30);
+        border-radius: 25px;
+        padding: 40px;
+        background: rgba(255, 255, 255, .08);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 0 25px rgba(162, 89, 255, .25);
+    }
+
+    .con-heading {
+        color: #fff;
+        font-size: 55px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .con-heading-1 {
+        color: #9d3cff;
+        font-size: 55px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .container h5 {
+        color: white;
+    }
+
+    .form-label {
+        color: white;
+    }
+
+    .form-label span {
+        color: #b44cff;
+    }
+
+    .form-control {
+        background: transparent;
+        border: 1px solid #9d3cff;
+        color: white;
+        border-radius: 12px;
+        transition: .3s;
+    }
+
+    .form-control::placeholder {
+        color: #bfbfbf;
+    }
+
+    .form-control:focus {
+        background: rgba(255, 255, 255, .12);
+        border-color: #b44cff;
+        box-shadow: 0 0 15px rgba(180, 76, 255, .45);
+        color: #fff;
+    }
+
+    .form-check {
+        margin-top: 25px;
+    }
+
+    .form-label {
+        color: #ddd;
+    }
+
+    .form-check input {
+        border: 2px solid #b44cff;
+        background: transparent;
+    }
+
+    .form-check input:checked {
+        background: #b44cff;
+        border-color: #b44cff;
+    }
+
+    .form-check a {
+        text-decoration: none;
+        color: #b44cff;
+    }
+
+    .form-check a:hover {
+        text-decoration: underline;
+        color: #8d3cff;
+    }
+
+    .sub-btn {
+        color: white;
+        background: linear-gradient(90deg, #a020f0, #3b82f6);
+        width: 100%;
+        border-radius: 14px;
+        margin-top: 30px;
+        padding: 14px;
+        font-size: 20px;
+        font-weight: 600;
+        transition: .3s;
+        border: none;
+    }
+
+    .sub-btn:hover {
+        color: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 0 20px rgba(162, 89, 255, .6);
+    }
+
+
+
+
+
+
+
+
+    .back-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 25px;
+        background: #a855f7;
+        color: white;
+        text-decoration: none;
+        border-radius: 20px;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+        background: #9333ea;
+    }
+</style>
+
+<header class="main-header">
+    <nav id="navbar" class="custom-navbar">
+        <a href="#" class="logo">
+            <span class="logo-p">G</span>
+            <span class="logo-text">ame Hub</span>
+            <span><img class="nav-img" src="bak.png"></span>
+        </a>
+        <ul class="nav-links">
+            <li><a class="link" href="Picnic.html">Home</a></li>
+            <li class="nav-dropdown">
+                <a class="link" href="#">Games ▾</a>
+                <ul class="custom-dropdown">
+                    <li><a class="drop" href="#Adults">Adults</a></li>
+                    <li><a class="drop" href="#Kids">Kids</a></li>
+                    <li><a class="drop" href="places.html">Places</a></li>
+                </ul>
+            </li>
+            <li><a class="link" href="places.html">Places🌍</a></li>
+            <li><a class="link" href="contact.html">Contact Us</a></li>
+        </ul>
+        <button class="login-btn">Login</button>
+    </nav>
+</header>
+
+<div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <img src="imageqq.png" class="d-block w-100">
+        </div>
+
+        <div class="carousel-item">
+            <img src="image44.png" class="d-block w-100">
+        </div>
+
+        <div class="carousel-item">
+            <img src="image33.png" class="d-block w-100">
+        </div>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+
+        <span>&#10094;</span>
+
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+
+        <span>&#10095;</span>
+
+    </button>
+
+</div>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h1><span class="con-heading">Contact</span> <span class="con-heading-1">Us</span> </h1>
+                <h5 class="mb-4">
+                    We'd love to hear from you. Send us a message and our team will get back to you.
+                </h5>
+                <form class="needs-validation" novalidate>
+
+                    <div class="row g-4 ">
+
+
+                        <div class="col-md-6">
+                            <!-- firstname -->
+                            <label for="firstname" class="form-label">firstName <span>*</span></label>
+                            <input type="text" class="form-control" id="firstname" required placeholder="FirstName">
+
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+
+                            <div class="invalid-feedback">
+                                Please enter your first name.
+                            </div>
+                        </div>
+                        <!-- lastname -->
+                        <div class="col-md-6">
+                            <label for="lastname" class="form-label">LastName <span>*</span></label>
+                            <input type="text" class="form-control" id="lastname" required placeholder="LastName">
+
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+
+                            <div class="invalid-feedback">
+                                Please enter your last name.
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-12">
+                            <label for="email" class="form-label">
+                                Enter Email <span>*</span>
+                            </label>
+
+                            <input type="email" class="form-control" id="email" required placeholder="Enter Email">
+
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+
+                            <div class="invalid-feedback">
+                                Please enter a valid email.
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="col-12">
+                            <div class="password-box">
+
+                                <label for="password" class="form-label">
+                                    Enter Password <span>*</span>
+                                </label>
+
+                                <input type="password" class="form-control" id="password" placeholder="Password"
+                                    required>
+
+                                <i class="bi bi-eye-slash-fill" id="togglePassword"></i>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+
+                                <div class="invalid-feedback">
+                                    Please enter your password.
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- message -->
+                        <div class="col-12">
+                            <label for="message" class="form-label">Message <span></span></label>
+                            <textarea id="message" class="form-control" rows="5" placeholder="Leave us a message..."
+                                required></textarea>
+
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+
+                            <div class="invalid-feedback">
+                                Please enter your message.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Checkbox -->
+                    <div class="col-12">
+                        <div class="form-check">
+
+                            <input class="form-check-input" type="checkbox" id="privacy" required>
+
+                            <label class="form-check-label" for="privacy">
+                                I agree the <a href="#">privacy policy</a>.
+                            </label>
+
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- button -->
+                    <div class="col-12">
+                        <button class="sub-btn" type="submit">
+                            Submit ✈
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- RIGHT SIDE - MAP -->
+            <div class="col-md-6">
+                <div class="map-box">
+                    <iframe src="https://www.google.com/maps?q=Amsterdam,Netherlands&output=embed" width="100%"
+                        height="500" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <center>
+        <a href="Picnic.html" class="back-btn">← Back to Main Page</a>
+    </center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div class="footer-logo">
+                <h2>Game<span>Zone</span>🎮</h2>
+                <p>The Ultimate Indoor & Outdoor Games Guide</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+
+                <a href="">Home</a>
+                <a href="#">Games</a>
+                <a href="#">Adults</a>
+                <a href="#">Kids</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+
+            <div class="footer-contact">
+
+                <p><i class="bi bi-geo-alt-fill"></i> Pakistan</p>
+                <p><i class="bi bi-envelope-fill"></i> gamezone@gmail.com</p>
+                <p><i class="bi bi-telephone-fill"></i> +92 300 1234567</p>
+            </div>
+            <div class="footer-social">
+
+                <h3>Follow Us</h3>
+
+                <a href="#"><i class="bi bi-facebook"></i></a>
+
+                <a href="#"><i class="bi bi-instagram"></i></a>
+
+                <a href="#"><i class="bi bi-youtube"></i></a>
+
+                <a href="#"><i class="bi bi-discord"></i></a>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            <h3>© 2025<span>GameZone</span>.All Rights Reserved.</h3>
+        </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="picnic.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
