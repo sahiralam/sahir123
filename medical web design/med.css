@@ -1,0 +1,155 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+
+/* Medical Logo */
+.medical-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+/* Heart Shape */
+.heart-logo {
+    width: 38px;
+    height: 34px;
+    background: linear-gradient(135deg, #08a9f5, #1555e8);
+    position: relative;
+    transform: rotate(-45deg);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Heart Top Circles */
+.heart-logo::before,
+.heart-logo::after {
+    content: "";
+    position: absolute;
+    width: 38px;
+    height: 34px;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.heart-logo::before {
+    top: -19px;
+    left: 0;
+}
+
+.heart-logo::after {
+    top: 0;
+    left: 19px;
+}
+
+/* ECG Line */
+.ecg {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transform: rotate(45deg);
+}
+
+/* Logo Text */
+.logo-text {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #123b72;
+}
+
+.logo-text b {
+    color: #079ee8;
+}
+.header {
+   height: 55px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
+   background-color: white;
+   padding: 0 35px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+.nav-links a{
+    text-decoration: none;
+    color: #29415c;
+    font-size: 18px;
+    transition: 0.3s;
+    font: 600;
+}
+.nav-links a:hover{
+        color: #087ee8;
+}
+
+.appointment {
+    display: inline-block;
+    width: 130px;
+    height: 38px;
+    padding: 0;
+    background: #087ee8;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(8, 126, 232, 0.25);
+}
+
+.appointment:hover {
+    background: #066bc4;
+}
+.hero {
+   
+    height: 100%;
+    min-height: 718px;
+    background-image: url("background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+.hero-content {
+    position: absolute;
+    top: 40%;
+    left: 8%;
+    transform: translateY(-50%);
+    color: #123b72;
+}
+.welcome{
+    color: #1b98eb;
+     font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero-content h1 {
+    font-size: 40px;
+
+    line-height: 1.15;
+
+    margin-bottom: 14px;
+}
+
+
+
+
+
+
