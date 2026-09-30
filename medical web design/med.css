@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0%;
     margin: 0%;
     box-sizing: border-box;
@@ -68,32 +68,36 @@
 .logo-text b {
     color: #079ee8;
 }
+
 .header {
-   height: 55px;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   width: 100%;
-   background-color: white;
-   padding: 0 35px;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    padding: 0 35px;
     position: relative;
     z-index: 10;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
 }
+
 .nav-links {
     display: flex;
     align-items: center;
     gap: 27px;
 }
-.nav-links a{
+
+.nav-links a {
     text-decoration: none;
     color: #29415c;
     font-size: 18px;
     transition: 0.3s;
     font: 600;
 }
-.nav-links a:hover{
-        color: #087ee8;
+
+.nav-links a:hover {
+    color: #087ee8;
 }
 
 .appointment {
@@ -117,15 +121,17 @@
 .appointment:hover {
     background: #066bc4;
 }
+
 .hero {
-   
+
     height: 100%;
     min-height: 718px;
     background-image: url("background.png");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
 }
+
 .hero-content {
     position: absolute;
     top: 40%;
@@ -133,23 +139,94 @@
     transform: translateY(-50%);
     color: #123b72;
 }
-.welcome{
+
+.welcome {
     color: #1b98eb;
-     font-size: 20px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .hero-content h1 {
     font-size: 40px;
-
     line-height: 1.15;
-
     margin-bottom: 14px;
 }
 
+.description {
+    color: #526b83;
+    font-size: 19px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Hero Buttons */
+.hero-content button {
+    background: #087ee8;
+    color: white;
+    border: none;
+    border-radius: 13px;
+    padding: 13px 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-content button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(8, 126, 232, 0.25);
+}
+
+.hero-content .learn-btn {
+    background: white;
+    color: #087ee8;
+    border: 2px solid #087ee8;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-content .learn-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(8, 126, 232, 0.20);
+}
+
+.medical-stats {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+    margin-top: 35px;
+}
 
 
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
 
+.stat-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #087ee8;
+    font-size: 28px;
+    font-weight: bold;
+}
 
+
+.stat h3 {
+    margin: 0;
+
+    color: #123b72;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.stat p {
+    margin: 2px 0 0;
+
+    color: #6d8296;
+
+    font-size: 8px;
+}
